@@ -1,0 +1,25 @@
+type Customer {
+    id: ID!
+    name: String!
+    email: String
+    orders: [Order]!
+}
+
+type Order {
+    id: ID!
+    totalPrice: Float
+    products: [Product]!
+}
+
+type Product {
+    id: ID!
+    name: String!
+    category: String
+    price: Float
+}
+
+
+# The Root Query for the application
+type Query {
+    customerOrders(count: Int): [Customer]!
+}
