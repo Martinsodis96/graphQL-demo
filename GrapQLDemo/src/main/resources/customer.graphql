@@ -1,3 +1,11 @@
+schema {
+    query: Query
+}
+
+type Query {
+    customerOrders(count: Int): [Customer]!
+}
+
 type Customer {
     id: ID!
     name: String!
@@ -7,7 +15,7 @@ type Customer {
 
 type Order {
     id: ID!
-    totalPrice: Float
+    orderDate: String!
     products: [Product]!
 }
 
@@ -16,10 +24,4 @@ type Product {
     name: String!
     category: String
     price: Float
-}
-
-
-# The Root Query for the application
-type Query {
-    customerOrders(count: Int): [Customer]!
 }
