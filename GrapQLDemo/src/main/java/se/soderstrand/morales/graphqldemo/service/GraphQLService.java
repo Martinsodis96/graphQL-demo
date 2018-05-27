@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import se.soderstrand.morales.graphqldemo.service.datafetcher.AllCustomersFetcher;
 import se.soderstrand.morales.graphqldemo.service.datafetcher.CustomerFetcher;
 
 import javax.annotation.PostConstruct;
@@ -24,6 +25,7 @@ public class GraphQLService {
     Resource resource;
 
     private final CustomerFetcher customerFetcher;
+
     private GraphQL graphQL;
 
     @Autowired

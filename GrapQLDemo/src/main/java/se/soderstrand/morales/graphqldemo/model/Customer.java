@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Getter
@@ -19,8 +17,10 @@ import java.util.Set;
 public class Customer {
 
     @Id
+    @GeneratedValue
     private Long id;
     private String name;
     private String email;
-  //  private Set<Order> orders;
+    @OneToMany(mappedBy = "customer")
+    private Set<SalesOrder> salesOrders;
 }

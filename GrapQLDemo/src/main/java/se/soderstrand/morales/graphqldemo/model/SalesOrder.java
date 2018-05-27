@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -17,11 +15,14 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table
-public class Order {
+public class SalesOrder {
 
     @Id
+    @GeneratedValue
     private Long id;
     private LocalDateTime orderDate;
-  //  private Customer customer;
-//    private Set<Product> product;
+    @ManyToOne
+    private Customer customer;
+    @OneToMany(mappedBy = "salesOrder")
+    private Set<Product> products;
 }
