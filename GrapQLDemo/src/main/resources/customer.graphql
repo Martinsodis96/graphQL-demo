@@ -3,25 +3,11 @@ schema {
 }
 
 type Query {
-    customerOrders(count: Int): [Customer]!
+    customer(id: Long): Customer!
 }
 
 type Customer {
     id: ID!
     name: String!
     email: String
-    orders: [Order]!
-}
-
-type Order {
-    id: ID!
-    orderDate: String!
-    products: [Product]!
-}
-
-type Product {
-    id: ID!
-    name: String!
-    category: String
-    price: Float
 }

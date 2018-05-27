@@ -1,0 +1,15 @@
+
+type Order {
+    id: ID!
+    orderDate: String!
+    products: [Product]!
+}
+
+type Product {
+    id: ID!
+    name: String!
+    category: String
+    price: Float
+}
+
+    orders: [Order]!
