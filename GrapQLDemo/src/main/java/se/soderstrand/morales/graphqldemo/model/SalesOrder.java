@@ -21,8 +21,17 @@ public class SalesOrder {
     @GeneratedValue
     private Long id;
     private LocalDateTime orderDate;
+    private String deliveryAddress;
+    private Boolean delivered;
+    private String campaignDiscount;
+
     @ManyToOne
     private Customer customer;
-    @OneToMany(mappedBy = "salesOrder")
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "sales_order_product",
+            joinColumns = { @JoinColumn(name = "sales_order_id") },
+            inverseJoinColumns = { @JoinColumn(name = "product_id") }
+    )
     private Set<Product> products;
 }

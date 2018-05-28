@@ -3,6 +3,7 @@ package se.soderstrand.morales.graphqldemo.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,8 +17,12 @@ public class Product {
     @GeneratedValue
     private Long id;
     private String name;
-    private String category;
     private String brand;
-    @ManyToOne
-    private SalesOrder salesOrder;
+    private String category;
+    private Double price;
+    private Double discount;
+    private Double percentageDiscount;
+
+    @ManyToMany(mappedBy = "products")
+    private Set<SalesOrder> salesOrders;
 }
