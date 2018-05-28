@@ -10,4 +10,22 @@ type Customer {
     id: ID!
     name: String!
     email: String
+    salesOrders: [SalesOrders]
 }
+
+type SalesOrders {
+    id: ID!
+    orderDate: String!
+    products: [Product]
+}
+
+type Product {
+    id: ID!
+    name: String!
+    category: String
+    brand: String
+    price: Float
+}
+
+
+

@@ -17,6 +17,7 @@ public class Product {
     private Long id;
     private String name;
     private String category;
+    private String brand;
     @ManyToOne
     private SalesOrder salesOrder;
 }
